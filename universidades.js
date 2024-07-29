@@ -20,7 +20,7 @@ function locationsTransformer(features) {
     }
 
     // Añadimos la ubicación de la universidad
-    if (university && x !== undefined && y !== undefined) {
+    if (university || x !== undefined || y !== undefined) {
       universityLocations.push({
         locationName: university,
         latLng: [x, y],
@@ -28,17 +28,13 @@ function locationsTransformer(features) {
     }
   });
 
-  return { states, universityLocations };
+  return [states, universityLocations];
 }
 
 // Verificamos que existan datos antes de ejecutar la transformación
-if (
-  data &&
-  data.features &&
-  Array.isArray(data.features) &&
-  data.features.length > 0
+if (data.features.length > 0
 ) {
-  const { states, universityLocations } = locationsTransformer(data.features);
+  const [states, universityLocations] = locationsTransformer(data.features);
 
   // Mostramos los resultados en la consola
   console.log("Estados únicos:", states);

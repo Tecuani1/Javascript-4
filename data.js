@@ -1,45 +1,4 @@
-const data = {
-  "objectIdFieldName": "OBJECTID",
-  "uniqueIdField": {
-    "name": "OBJECTID",
-    "isSystemMaintained": true
-  },
-  "globalIdFieldName": "",
-  "geometryType": "esriGeometryPoint",
-  "spatialReference": {
-    "wkid": 4326,
-    "latestWkid": 4326
-  },
-  "fields": [
-    {
-      "name": "University_Chapter",
-      "type": "esriFieldTypeString",
-      "alias": "University Chapter",
-      "sqlType": "sqlTypeOther",
-      "length": 255,
-      "domain": null,
-      "defaultValue": null
-    },
-    {
-      "name": "City",
-      "type": "esriFieldTypeString",
-      "alias": "City",
-      "sqlType": "sqlTypeOther",
-      "length": 255,
-      "domain": null,
-      "defaultValue": null
-    },
-    {
-      "name": "State",
-      "type": "esriFieldTypeString",
-      "alias": "State",
-      "sqlType": "sqlTypeOther",
-      "length": 255,
-      "domain": null,
-      "defaultValue": null
-    }
-  ],
-  "exceededTransferLimit": true,
+export const data = {
   "features": [
     {
       "attributes": {

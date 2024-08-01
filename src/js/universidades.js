@@ -19,18 +19,11 @@ function locationsTransformer(features) {
       states.push(state);
     }
 
-    if (university && state) {
-      universityLocations.push({
-        university: university,
-        latLng: [x, y],
-      });
-    } else {
-      // Agregar la ubicación con los datos que tengas, sin coordenadas si falta la universidad
-      universityLocations.push({
-        university: university || 'Unknown university',
-        latLng: university ? [x, y] : null, // Asignar coordenadas solo si hay universidad
-      });
-    }
+    // Añadimos la ubicación de la universidad
+    universityLocations.push({
+      university: university || 'Unknown university',
+      latLng: university ? [x, y] : null,
+    });
   });
 
   return [states, universityLocations];
@@ -71,19 +64,24 @@ function createUniversityTable(universityLocations) {
   }
 }
 
-// Verificamos que existan datos antes de ejecutar la transformación
-if (data?.features?.length > 0) {
-  const [states, universityLocations] = locationsTransformer(data.features);
+// Función principal para ejecutar las transformaciones y actualizaciones
+function main() {
+  if (data?.features?.length > 0) {
+    const [states, universityLocations] = locationsTransformer(data.features);
 
-  // Mostrar los estados y ubicaciones en la consola
-  console.log('States:', states);
-  console.log('University Locations:', universityLocations);
+    // Mostrar los estados y ubicaciones en la consola
+    console.log('States:', states);
+    console.log('University Locations:', universityLocations);
 
-  // Crear el select de estados
-  createStateSelect(states);
+    // Crear el select de estados
+    createStateSelect(states);
 
-  // Crear la tabla de universidades
-  createUniversityTable(universityLocations);
-} else {
-  console.log('No se encontraron datos en el archivo.');
+    // Crear la tabla de universidades
+    createUniversityTable(universityLocations);
+  } else {
+    console.log('No se encontraron datos en el archivo.');
+  }
 }
+
+// Ejecutar la función principal
+main();

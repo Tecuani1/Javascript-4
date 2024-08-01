@@ -3,9 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mapa de universidades</title>
+    <title>Mapa de Universidades</title>
     <link rel="icon" href="/src/img/faviconmap.png" type="image/png" />
-    <script type="module" src="universidades.js"></script>
+    <link rel="stylesheet" href="/src/css/styles.css" />
+    <script type="module" src="/src/js/universidades.js"></script>
   </head>
-  <body></body>
+  <body>
+    <h1>Mapa de Universidades</h1>
+    <select id="stateSelect">
+      <option value="">Seleccione un estado</option>
+    </select>
+    <table id="universityTable">
+      <thead>
+        <tr>
+          <th>University</th>
+          <th>Latitude</th>
+          <th>Longitude</th>
+        </tr>
+      </thead>
+      <tbody id="UniversityTable"></tbody>
+    </table>
+  </body>
 </html>
